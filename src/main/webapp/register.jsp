@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="java.sql.*" %>
+    <%@page import="data.Agree" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,6 +23,11 @@
 			String service_agree = request.getParameter("service_agree");
 			String privacy_agree = request.getParameter("privacy_agree");
 			String event_agree = request.getParameter("event_agree");
+			Agree a = (Agree)session.getAttribute("agree");
+			
+		
+			
+			
 			
 			
 			Connection conn = null;
@@ -30,10 +36,10 @@
 			String url="jdbc:mysql://127.0.0.1:3306/member";
 			String db_id="root";
 			String db_pw = "12345678";
-			String sql ="insert into register(id,pw,name,email,nick , tongsinsa, phone , birth , service_agree,";
-			sql+= "privacy_agree, event_agree) values('"+id+"' ,'"+pw+"','"+name+"','"+email+"' , ";
+			String sql ="insert into register(id,pw,name,email,nick , tongsinsa, phone , birth , s_a,";
+			sql+= "p_a, e_a) values('"+id+"' ,'"+pw+"','"+name+"','"+email+"' , ";
 			sql+= "'"+nick+"' ,'"+tongsinsa+"' ,'"+phone+"' ,'"+birth+"' , ";
-			sql+= "'"+service_agree+"','"+privacy_agree+"','"+event_agree+"');";
+			sql+= "'"+a.getS_a()+"','"+a.getP_a()+"','"+a.getE_a()+"');";
 			
 			try{
 				Class.forName("com.mysql.cj.jdbc.Driver");

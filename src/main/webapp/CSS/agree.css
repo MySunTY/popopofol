@@ -4,20 +4,29 @@
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
 }
-body{
-    background-color: antiquewhite;
-}
+
 
 #wrap{
-	width : 1000px;
-	height : 800px;
+	width : 800px;
+	
 	
 	margin : 0 auto;
 	text-align : center;
+	border : 3px solid rgb(166, 166, 166);
 	
 	
 }
 #allcheck{
 	width : 500px;
 	margin : 0 auto;
+}
+textarea{
+	margin-bottom: 30px;
+}
+input[type="submit"]{
+	width : 30%;
+	height : 50px;
+	margin : 0 auto;
+	display: block;
+	background-color : yellow;
 }

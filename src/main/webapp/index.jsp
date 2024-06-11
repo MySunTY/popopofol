@@ -20,20 +20,24 @@
         <div class="loginForm">
             <form method="post" action="check.jsp">
             
-            <input type="text" name="id" class="textField" placeholder="아이디를 입력하세요" required>
-            <input type="text" name="pw" class="textField" placeholder="비밀번호를 입력하세요" required>
+            <input type="text" name="id" class="textField" placeholder="아이디를 입력하세요" required autocomplete="off">
+            <input type="password" name="pw" class="textField" placeholder="비밀번호를 입력하세요" required autocomplete="off">
             <input type="submit" value="로그인" class="submitBtn">
+            <div id="or">
+            	<hr> 또는 <hr>
+            </div>
             
+            <div id="other">다른 방법으로 로그인하기</div>
             <div class="newId">
             <a href="agree.jsp">아직 회원이 아니신가요?</a>
             
             </div>
             <div class="newId">
-                <a href="#">비밀번호를 잊어버리셨나요?</a>
+                <a href="#" id="passfind">비밀번호를 잊어버리셨나요?</a>
             </div>
             </form>       
         </div>
-        <div class="other">
+        <!--  <div class="other">
             <div class="otherBtn">
                 <img src="img/구글.png" class="otherImg">구글 아이디로 로그인하기
             </div>
@@ -50,7 +54,7 @@
 
 
         </div>
-
+			-->
 
         </section>
         <footer>
@@ -65,7 +69,12 @@
 
         </footer>
 
-
+	<script>
+		let passfind = document.getElementById("passfind");
+		passfind.addEventListener("click",function(){
+			window.open("passcheck.jsp","pop","width=500 , height=500 , left=100 , top=200");
+		});
+	</script>
 
 
 

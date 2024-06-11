@@ -1,19 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>약관 동의 여부</title>
 		<link rel="stylesheet" href="CSS/agree.css">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	</head>
 	<body>
+	
+		
 		<div id="wrap">
 			<div class="headline">
-				<h3>약관 동의 페이지</h3>
+				<h1>약관 동의 페이지</h1>
 			</div>
 			
-			<form method="get" action="insert.jsp">
+			<form method="get" action="agreesave.jsp">
 				<div id="allcheck">
 				<input type="checkbox">전체 동의하기
 				</div>
@@ -43,7 +47,7 @@
 					<input type="text" class="hid" value="0" name="service">
 					<input type="text" class="hid" value="0" name="privacy">
 					<input type="text" class="hid" value="0" name="event">
-				<input type="submit" value="다음">
+				<input type="submit" value="다음" id="next">
 				
 			</form>
 		</div>
@@ -51,7 +55,6 @@
 			let allcheck = document.getElementById("allcheck");
 			let checks = document.getElementsByClassName("check");
 			let hids = document.getElementsByClassName("hid");
-			let count = 0;
 			allcheck.addEventListener("click",function(){
 				for(let i = 0 ; i<checks.length; i++){
 					checks[i].setAttribute("checked",true);
@@ -59,6 +62,12 @@
 					count++;
 				}
 			});
+			
+			
+			
+			
+			let count = 0;
+			
 			for(let i = 0; i<checks.length; i++){
 				
 				checks[i].addEventListener("change",function(){
@@ -79,10 +88,19 @@
 						});*/
 					
 				});//aEL
-				console.log(hids[i]);
+				
 			}//for
+			
+			let next = document.getElementById("next");
+			next.addEventListener("click",function(){
+				
+				<%
+				session.setAttribute("jungbok","중복체크해주세요");
+				%>
+			});
 			
 			
 		</script>
+		
 	</body>
 </html>
